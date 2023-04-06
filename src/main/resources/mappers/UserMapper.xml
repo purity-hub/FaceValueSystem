@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhy.dao.UserMapper">
+    <select id="selectUserByUsername" resultType="com.lhy.model.User">
+        select * from user where username = #{username}
+    </select>
+    <insert id="insertUser">
+        insert into user(username,password) values(#{username},#{password})
+    </insert>
+    <select id="selectUserImage" resultType="String">
+        select imgpath from user where username = #{username}
+    </select>
+    <update id="updateUserImage">
+        update user set imgpath = #{image} where username = #{username}
+    </update>
+</mapper>

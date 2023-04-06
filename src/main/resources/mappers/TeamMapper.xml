@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhy.dao.TeamMapper">
+    <insert id="insertTeam" parameterType="com.lhy.model.Team">
+        insert into team(name, score) values(#{name}, #{score})
+    </insert>
+    <select id="selectTeamAll" resultType="com.lhy.model.Team">
+        select * from team order by score desc
+    </select>
+    <update id="updateTeamScore">
+        update team set score = #{score} where id = #{id}
+    </update>
+    <select id="selectMaxId" resultType="int">
+        select max(id) from team
+    </select>
+</mapper>
